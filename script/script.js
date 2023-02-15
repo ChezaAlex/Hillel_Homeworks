@@ -27,7 +27,7 @@ const universes = [
 
 
 
-function tableFirst(a, b) {
+function tableOut(a, b) {
     if(b == animals){
     document.querySelector('#title1').innerHTML = title1;
     }else if(b == food){
@@ -49,6 +49,6 @@ function tableFirst(a, b) {
 	}
 
 }
-tableFirst(table1, animals);
-tableFirst(table2, food);
-tableFirst(table3, universes);
+tableOut(table1, animals);
+tableOut(table2, food);
+tableOut(table3, universes);
