@@ -1,10 +1,6 @@
-let table1 = document.querySelector('#table1');
-let table2 = document.querySelector('#table2');
-let table3 = document.querySelector('#table3');
-
-const title1 = 'Animals info';
-const title2 = 'Food info';
-const title3 = 'Universes info';
+let table1 = document.querySelector('#table1')
+let table2 = document.querySelector('#table2')
+let table3 = document.querySelector('#table3')
 
 const animals = [
 	['🐭','mouse','Jerry'],
@@ -25,30 +21,33 @@ const universes = [
 	['❤️', 'Marvel', ['Iron Man', 'the Hulk', 'Black Widow']]
 ]
 
+getInfo(animals, 'Animals')
+getInfo(food, 'Food')
+getInfo(universes, 'Universes')
 
 
-function tableOut(a, b) {
-    if(b == animals){
-    document.querySelector('#title1').innerHTML = title1;
-    }else if(b == food){
-        document.querySelector('#title2').innerHTML = title2;
-    }else{
-        document.querySelector('#title3').innerHTML = title3;
-    }
-
-    for (let i = 0; i < b.length; i++) {
-		let tr = document.createElement('tr');
-		
-		for (let j = 0; j < b[i].length; j++) {
-			let td = document.createElement('td');
-			td.innerHTML = b[i][j];
-			tr.appendChild(td);
+function getInfo(name, title){
+	
+    if(name == animals){
+		document.querySelector('#title1').innerHTML = title + ' info';
+		}else if(name == food){
+			document.querySelector('#title2').innerHTML = title + ' info';
+		}else{
+			document.querySelector('#title3').innerHTML = title + ' info';
 		}
-		
-		a.appendChild(tr);
+	for(let i =0; i<name.length; i++){
+		let tr = document.createElement('tr');
+		for(let j=0; j<name[i].length; j++){
+			let	td = document.createElement('td');
+				td.innerHTML = name[i][j];
+				tr.appendChild(td)
+		}
+		if(title =='Animals'){
+			table1.appendChild(tr);
+		}else if(title =='Food'){
+			table2.appendChild(tr);
+		}else{ 
+			table3.appendChild(tr);
+		}
 	}
-
 }
-tableOut(table1, animals);
-tableOut(table2, food);
-tableOut(table3, universes);
