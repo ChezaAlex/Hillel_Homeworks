@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script/script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class ='wrapper'>
+        <div class="functions">
+                <div class ="func2inp">
+                    <div class="content">
+                    <div class="title">
+                        <h1>Калькулятор</h1>
+                    </div>
+                        <div class="func3">
+                            <label for="inp1func2">Введіть перше число</label>
+                            <input type="number" class="inp1func2">
+                        </div>
+                        <div class="func3">
+                            <select name="" class="operator">
+                                <option value="+">+</option>
+                                <option value="-">-</option>
+                                <option value="*">*</option>
+                                <option value="/">/</option>
+                                <option value="%">%</option>
+                                <option value="^">^</option>
+                            </select>
+                        </div>
+ 
+                    <div class="func3">
+                        <label for="inp2func2">Введіть друге число, або ступінь</label>
+                        <input type="number" class="inp2func2">
+                    </div>
+                    <button class="btnf2" onclick="doMath()">Обчислити</button>
+                    <div class="out2"></div>
+                </div>   
+                </div>
+
+            <div class ="func3inp">
+                    <h1>Створення двомірного массиву</h1>
+                    <div class="func3">
+                        <label for="inp1func3">Введіть довжину зовнішнього массиву</label>
+                        <input type="number" class="inp1func3">
+                    </div>
+                    <div class="func3">
+                        <label for="inp2func3">Введіть довжину внутрішнього массиву</label>
+                        <input type="number" class="inp2func3">
+                    </div>
+                    <div class="func3">
+                        <label for="inp2func3">Введіть значення массиву</label>
+                        <input type="text" class="inp3func3">
+                    </div>
+                    <button class="btnf3" onclick="ArrayMult()">Створити таблицю з двомірного массиву</button>
+                    <div class="tablewrap">
+                        <table id="table1"></table>
+                    </div>
+                    <div class="out3"></div>
+                </div>
+        </div>
+    </div> 
+</body>
+</html> 
