@@ -11,22 +11,19 @@ const obj = {
     }
 } 
 
-
 function convert() {
-  let objCopy = {}; 
-  let key;
-
-  for (key in obj) {
-    if(typeof(obj[key]) == 'number'){
-      objCopy[key] = obj[key]; 
+    const newObj = {};
+    collect(newObj, obj);
+    return newObj;
+  }
+  convert()
+  
+  function collect(newObj, obj) {
+    for (let [key, value] of Object.entries(obj)) {
+      if (typeof value === 'object') {
+        collect(newObj, value);
+        continue;
+      }
+      newObj[key] = value;
     }
   }
-  for(key in obj.inner){
-      objCopy[key] = obj.inner[key];
-  }
-    for(key in obj.foo2){
-    objCopy[key] = obj.foo2[key];
-  }
-  console.log (objCopy);
-}
-convert()
