@@ -26,42 +26,70 @@ const ITCompany = {
   ]
 }
 
-let userName = workerName = "Alex",
-    positionName = "scramMaster".toLowerCase(),
-    userSalary = 500
+
+
+let 
+    userName = workerName = prompt('Please, enter your name:'),
+    positionName = prompt('Please, enter position "FrontEnd", "BackEnd","ScramMaster","Tester"').toLowerCase(),
+    userSalary = prompt('Please, enter your desired salary:')
+    userSalary = Number(userSalary)
+
+
+
+
+if(userName.length ==  0 && positionName.length ==  0 && userSalary.length ==  0){
+    alert('Please, fill in all the fields')
+} else if(positionName !== "frontend" && positionName !== "backend" && positionName !== "scrammaster" && positionName !== "tester"){
+    alert('Please put correct position name')
+}else if(userSalary !== userSalary){
+    alert('Please put only numbers in "desired salary"')
+}else{
+    comparing() 
+}
+
+
+
 
 function greeting() {
-    document.write(`hello my name is ${workerName}, im ${positionName} developer in ${this.companyName}` );
+    document.write(`Hello my name is ${workerName}, im ${positionName} developer in ${this.companyName}` );
 }
+
+function refusal(){
+    document.write(`${userName}, you has significant skills at ${positionName} but we hired another developer, let's keep contact !`)
+}
+
+
 
 function comparing(){
     let {vacancies} = ITCompany 
-for(let key of vacancies){
-      for(let value in key){  
-        if(value.toLowerCase() == positionName && userSalary <= 1200){
-            let newObject = Object.create(ITCompany)
-            newObject.greeting = greeting.call(ITCompany)
-            console.log(1)
-        }else if(value.toLowerCase() == positionName && userSalary <= 1500 ){
-            let newObject = Object.create(ITCompany)
-            newObject.greeting = greeting.call(ITCompany)
-            console.log(2)
-        }else if(value.toLowerCase() == positionName && userSalary <= 500 ){
-            let newObject = Object.create(ITCompany)
-            newObject.greeting = greeting.call(ITCompany)
-            console.log(3)
-            
-        }else if(value.toLowerCase() == positionName && userSalary <= 600 ){
-            let newObject = Object.create(ITCompany)
-            newObject.greeting = greeting.call(ITCompany)
-            console.log(4)
-            }
-
+    let vacancy = vacancies.map(el=>{
+        let vacancyName = Object.keys(el)[0].toLowerCase()
+        return vacancyName === positionName
+    }).findIndex(function (e){ return e == true})
+    if(vacancy == -1)
+    {refusal.call(ITCompany)}
+        else{
+    let vacantion = vacancies[vacancy]
+       let salary = Object.values(vacantion).map(el => Object.values(el) >= userSalary);
+      if(salary[0] == true){
+        let newObject = Object.create(ITCompany)
+                        newObject.userName = userName
+                        newObject.positionName = positionName
+                        newObject.userSalary = userSalary
+                        newObject.greeting = greeting.call(ITCompany)
+                        console.log(newObject)
+          }else{
+            refusal.call(ITCompany)
         }
     }
 }
-comparing()  
-  
+ 
+
+
+
+
+
+
 
 
 
