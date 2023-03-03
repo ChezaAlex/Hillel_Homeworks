@@ -1,29 +1,29 @@
 const ITCompany = {
-  id: 12332129,
-  companyName: 'Playtika',
-  type: 'product',
-  vacancies: [
-      {
-          frontEnd: {
-              salary: 1200
-          },
-      },
-      {
-          backEnd: {
-              salary: 1500
-          },
-      },
-      {
-          scramMaster: {
-              salary: 500
-          },
-      },
-      {
-          tester: {
-              salary: 600
-          },
-      }
-  ]
+id: 12332129,
+companyName: 'Playtika',
+type: 'product',
+vacancies: [
+    {
+        frontEnd: {
+            salary: 1200
+        },
+    },
+    {
+        backEnd: {
+            salary: 1500
+        },
+    },
+    {
+        scramMaster: {
+            salary: 500
+        },
+    },
+    {
+        tester: {
+            salary: 600
+        },
+    }
+]
 }
 
 let userName = workerName = prompt('Please, enter your name:')
