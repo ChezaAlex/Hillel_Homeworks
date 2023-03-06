@@ -1,8 +1,10 @@
+const ARRAY = document.querySelector('.arrnum').value;
 function value(){
-    var arr = document.querySelector('.arrnum').value; 
-    if(arr == 0){document.querySelector('.out').innerHTML = "Введіть ваше число"}else{
+    let arr = ARRAY
+    if(arr == 0){document.querySelector('.out').innerHTML = "Введіть ваше число"
+    }else{
     arr = arr.split(",").map(string => parseInt(string));
-}
+    }
    return arr
 }
 
@@ -19,14 +21,14 @@ function quantitypositivesum(){
 function minelem(){
     let arr = value()
     let min = Math.min.apply(null, arr)
-    let minindex = arr.indexOf(Math.min.apply(null, arr));
+    let minindex = arr.indexOf(min);
     document.querySelector('.out').innerHTML = "Мінімальний елемент масиву: " + min + "<br>" + "Порядковий номер: " + minindex;
 }
 
 function maxelem(){
     let arr = value()
     let max = Math.max.apply(null, arr)
-    let maxindex = arr.indexOf(Math.max.apply(null, arr));
+    let maxindex = arr.indexOf(max);
     document.querySelector('.out').innerHTML = "Максимальний елемент масиву: " + max + "<br>" + "Порядковий номер: " + maxindex;
 }
 
