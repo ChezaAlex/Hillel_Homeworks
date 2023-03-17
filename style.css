@@ -1,0 +1,14 @@
+html{
+    min-height: 100%;
+    min-width: 100%;
+}
+.block{
+    width: 100px;
+    height: 100px;
+    background: black;
+    position: relative;
+    left: 0;
+    top: 0;
+    transition: 0.5s;
+    text-align: center;
+}
