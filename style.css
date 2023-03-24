@@ -1,0 +1,12 @@
+body{
+    display: flex
+}
+form{
+    width: 50%;
+}
+button{
+    margin-top: 10px;
+}
+div{
+    padding: 15px;
+}

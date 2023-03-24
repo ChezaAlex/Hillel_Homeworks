@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script/script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+    <body>
+        <form action="">
+                <fieldset>
+                    <legend>Name</legend>
+                    <input type="text" id="name" class="name">
+                    <p></p>
+                </fieldset>
+                <fieldset>
+                        <legend>Select size</legend>
+                            <select name="Sizesize" id="size">
+                                <option value ="Big">Big size</option>
+                                <option value ="Small">Small size</option>
+                            </select>
+                </fieldset>
+                <fieldset>
+                        <legend>Select stuffing</legend>
+                        <input type="radio" value="Cheese" id="stuffing" name ="stuffing">Cheese</input> 
+                        <input type="radio" value="Salad" id="stuffing"  name ="stuffing">Salad</input> 
+                        <input type="radio" value="Potato" id="stuffing" name ="stuffing">Potato</input> 
+                </fieldset>
+                <fieldset>
+                        <legend>Select topping</legend>
+                        <input type="checkbox" value="Mayonez" id="topping" name ="topping">Mayonez</input> 
+                        <input type="checkbox" value="Sauce" id="topping" name ="topping">Sauce</input> 
+                </fieldset>
+                <fieldset>
+                    <legend>Massage to order:</legend>
+                    <textarea name="Massage" cols="30" rows="10"></textarea>
+                </fieldset>
+                <button id ="done">Done</button>
+        </form>
+        <div id="orders"></div>
+    </body>
+</html> 
