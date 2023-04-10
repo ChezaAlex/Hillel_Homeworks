@@ -1,12 +1,286 @@
-body{
-    display: flex
+*{
+    margin: 0;
 }
+
+
+.header{
+    padding-top: 40px;
+}
+
+h1{
+    font-size: 20px;
+    line-height: 28px;
+}
+h2{
+    font-size: 32px;
+    line-height: 44px;
+    padding-top: 78px;
+}
+h3{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 44px;
+}
+
+
+main{
+    margin-left: 140px;
+    display: flex;
+    position: relative;
+}
+
 form{
-    width: 50%;
+    padding-top: 43px;
 }
-button{
-    margin-top: 10px;
+fieldset{
+    border: none;
+    padding-left: 0px;
 }
-div{
-    padding: 15px;
+/* Поиск по категории */
+.searchType{
+    display: inline-block;
+    color: #ABABAB;
+    background: #F8F8F8;
+    border: 2px solid #F8F8F8;
+    border-radius: 6px;
+    padding: 5px 20px 5px 20px;
+}
+#searchTypes{
+    display: none;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+#searchTypes.open{
+    display: block;
+}
+input[name = 'searchTypes']{
+    position: absolute;
+    z-index: -1;  
+    opacity: 0;
+}
+input[name = 'searchTypes']:checked + label{
+    color: #333333;
+}
+
+.pId{
+    color: #8EA7FF;
+    font-size: 10px;
+}
+/* Поиск по слову */
+#searchText{
+    display: inline-block;
+    width: 680px;
+    border: 2px solid #333333;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#buton{
+    background: linear-gradient(90.55deg, #8EA7FF 0%, #7291FF 100%);
+    border: #FFFFFF;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+    width: 152px;
+    height: 42px;
+}
+/* Результат шуток */
+#jokesWrap{
+    position: relative;
+    margin-top: 40px;
+    width: 680px;
+    height: 225px;
+}
+#jokesWrap p{
+    width: 540px;
+}
+.joke{
+    position: relative;
+    padding: 60px;
+    background-color: #F8F8F8;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.pDate{
+    padding-top: 20px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    color: #ABABAB;
+}
+/* Кнопка для сайдбара */
+#favBtnBlock{
+    display: none;
+}
+.favText{
+    color: #ABABAB;
+    font-size: 20px;
+    padding-top: 3px;
+    padding-left: 5px;
+}
+#favBtn {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    background: #333333;
+    border-radius: 50%;
+    border: 1px solid #333333;
+}
+#favBtn span{
+    position: absolute;
+    left: 6px;
+    width: 14px;
+    height: 2px;
+    background: #F8F8F8;
+    transition: transform .5s;
+}
+#favBtn span:nth-child(1){
+    transform: translateY(1px)
+}
+#favBtn span:nth-child(2){
+    transform: translateY(-3px)
+}
+#favBtn.open span:nth-child(1){
+    transform: translateY(-1px) rotate(45deg);
+}
+#favBtn.open span:nth-child(2){
+    transform: translateY(-1px) rotate(-45deg);
+}
+
+/* Боковая панель */
+aside{
+    background: #F8F8F8;
+    min-height: 900px;
+    width: 480px;
+}
+aside div{
+    background: #FFFFFF !important; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+    width: 300px; 
+    margin: 20px 30px 20px 30px;
+}
+h4{
+    color: #ABABAB;
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+.favJoke{
+    background: #FFFFFF; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+    width: 400px; 
+    height: 140px; 
+    margin: 20px 40px 20px 40px;
+}
+
+/* Картинки */
+.heartImg{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+.imgMess{
+    position: absolute;
+    top: 80px;
+    left: 30px;
+}
+div .categories{
+    color: #333333;
+    background: #FFFFFF;
+    border: 2px solid #F8F8F8;
+    border-radius: 6px;
+    padding: 6px 0 6px 0;
+    letter-spacing: 2px;
+    text-align: center;
+    font-size: 10px;
+    width: 107px;
+    text-transform: uppercase;
+    position: absolute;
+    top: 110px;
+    right: 40px;
+}
+
+@media screen and (max-device-width: 834px) {
+    article{
+        position: relative;
+    }
+    h4{
+        opacity: 0;
+    } 
+    #searchText{
+        width: 400px;
+    }
+    #jokesWrap{
+        width: 550px;
+    }
+    #favBtnBlock{
+        display: flex;
+        position: absolute;
+        top: 37px;
+        right: 100px;
+        z-index: 99;
+    }
+    #jokesWrap p{
+        width: 400px;
+    }
+    aside{
+        display: none;
+        position: absolute;
+        right: -610px;
+        min-height: 1080px;
+        top: 0;
+        
+    }
+    aside.open{
+        display: block;
+        transform: translateX(-690px);
+    }
+}
+@media screen and (max-device-width: 380px){
+    main{
+        margin-left: 20px;
+        width: 380px;
+    }
+    #favBtnBlock{
+        right: 54px;
+    }
+    aside.open{
+        display: block;
+        transform: translateX(-400px);
+    }
+    aside{
+        background: #F8F8F8;
+        min-height: 1080px;
+        width: 400px;
+    }
+    #searchText{
+        width: 317px;
+    }
+    aside.open{
+        display: block;
+        transform: translateX(-610px);
+    }
+    aside div{
+        width: 220px; 
+        margin: 20px 10px 20px 10px;
+    }
+    #jokesWrap p{
+        width: 250px;
+    }
+    #jokesWrap{
+        width: 325px;
+    }
+    div .categories{
+        top: 140px;
+
+    }
 }

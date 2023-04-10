@@ -1,178 +1,154 @@
-let orders = document.querySelector('#orders')
 let form = document.querySelector('form')
-let userName = document.querySelector('#name')
-let warning = document.querySelector('p');
-let size = document.querySelector('#size')
-let text = document.querySelector('textarea')
+let jokesWrap = document.querySelector('#jokesWrap')
+let favorite = document.querySelector('aside')
+let searchFrom = document.querySelector('#searchFrom')
+const currentDate = new Date();
 
+function dateDifrence(date, currentDate){
+date.slice(0,19)
+const hollowDate = new Date(date);
+const differenceInMilliseconds = currentDate.getTime() - hollowDate.getTime();
+let differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
+let stringDiffrence = differenceInDays.toString().slice(0,4)
+return `Last update:${stringDiffrence} days ago`
+}
 
-
-form.addEventListener('submit', (event) => {
-  let randomValue = Math.floor(Math.random() * 15)
-
-  let div = document.createElement('div')
-  let stuffing = document.querySelector('input[name = "stuffing"]:checked')
-  let topping = [...document.querySelectorAll('input[name = "topping"]:checked')]
-
-  const userForm = {}
-  event.preventDefault()
-
-  
-  if(userForm.value == undefined){
-    div.innerHTML = "Заполните все поля!!!"
-    orders.insertAdjacentElement('beforeend', div);
-  }
-  
-  userForm.name = userName.value
-  userForm.staffing = stuffing.value
-  userForm.topping = topping.map(el => {
-        if(el.checked)
-          return el.value
-      })
-  userForm.size = size.value
-  userForm.text = text.value
-  
-  console.log(userForm)
-
-  class Hamburger{
-    constructor(size, stuffing){
-      this.size = size;
-      this.stuffing = stuffing;
-      this.toppings = []
-    }
-    static get SIZE_SMALL(){return{ size:'small', price: 50, calories: 20}}
-    static get SIZE_BIG(){return{ size:'big', price: 100, calories: 40}}
-    static get STUFFING_CHEESE(){return{ name: 'cheese', price: 10, calories: 20}}
-    static get STUFFING_SALAD(){return{ name: 'salad', price: 20, calories: 5}}
-    static get STUFFING_POTATO(){return{ name: 'potato', price: 15, calories: 10}}
-    static get TOPPING_SAUCE() {return { name: 'sauce', price: 15, calories: 0 }}
-    static get TOPPING_MAYO() {return { name: 'mayo', price: 20, calories: 5 }}
-  
-    addTopping(topping){
-      return this.toppings.push(topping)
-    }
-    calculatePrice(){
-        const toppingPrice = this.toppings.reduce((total, topping) => total + topping.price, 0);
-        return this.size.price + this.stuffing.price + toppingPrice;
-    }
-    calculateCal(){
-        const toppingCal= this.toppings.reduce((total, topping) => total + topping.calories, 0)
-        return this.size.calories + this.stuffing.calories + toppingCal;
-    }
-  }
-  let burgerPrize = ham().calculatePrice()
-  let calories = ham().calculateCal()
-  function ham(){
-    let hamburger
-    if(userForm.size == 'Big'){
-        if(userForm.staffing == 'Cheese'){
-           let hamburger = new Hamburger(Hamburger.SIZE_BIG, Hamburger.STUFFING_CHEESE);
-                if(userForm.topping.length == 1){
-                    if(userForm.topping[0] == 'Sauce'){
-                        hamburger.addTopping(Hamburger.TOPPING_SAUCE);
-                        return hamburger
-                      }else if(userForm.topping[0] == 'Mayonez'){
-                        hamburger.addTopping(Hamburger.TOPPING_MAYO);
-                        return hamburger
-                      }
-                      }else if(userForm.topping.length == 2){
-                        hamburger.addTopping(Hamburger.TOPPING_MAYO)
-                        hamburger.addTopping(Hamburger.TOPPING_SAUCE);
-                        return hamburger
-                      }
-                return hamburger
-        }else if(userForm.staffing == 'Salad'){
-            let hamburger = new Hamburger(Hamburger.SIZE_BIG, Hamburger.STUFFING_SALAD);
-                  if(userForm.topping.length == 1){
-                    if(userForm.topping[0] == 'Sauce'){
-                        hamburger.addTopping(Hamburger.TOPPING_SAUCE);
-                        return hamburger
-                      }else if(userForm.topping[0] == 'Mayonez'){
-                        hamburger.addTopping(Hamburger.TOPPING_MAYO);
-                        return hamburger
-                      }
-                      }else if(userForm.topping.length == 2){
-                        hamburger.addTopping(Hamburger.TOPPING_MAYO)
-                        hamburger.addTopping(Hamburger.TOPPING_SAUCE)
-                        return hamburger
-                      }
-                return hamburger
-        }else if(userForm.staffing == 'Potato'){
-           let hamburger = new Hamburger(Hamburger.SIZE_BIG, Hamburger.STUFFING_POTATO);
-                    if(userForm.topping.length == 1){
-                      if(userForm.topping[0] == 'Sauce'){
-                          hamburger.addTopping(Hamburger.TOPPING_SAUCE);
-                          return hamburger
-                        }else if(userForm.topping[0] == 'Mayonez'){
-                          hamburger.addTopping(Hamburger.TOPPING_MAYO);
-                          return hamburger
-                        }
-                        }else if(userForm.topping.length == 2){
-                          hamburger.addTopping(Hamburger.TOPPING_MAYO)
-                          hamburger.addTopping(Hamburger.TOPPING_SAUCE);
-                          return hamburger
-                        }
-                return hamburger
-        }
-    }else if(userForm.size == 'Small'){
-        if(userForm.staffing == 'Cheese'){
-           let hamburger = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE);
-                if(userForm.topping.length == 1){
-                  if(userForm.topping[0] == 'Sauce'){
-                    hamburger.addTopping(Hamburger.TOPPING_SAUCE);
-                    return hamburger
-                  }else if(userForm.topping[0] == 'Mayonez'){
-                    hamburger.addTopping(Hamburger.TOPPING_MAYO);
-                    return hamburger
-                  }
-                  }else if(userForm.topping.length == 2){
-                        hamburger.addTopping(Hamburger.TOPPING_MAYO)
-                        hamburger.addTopping(Hamburger.TOPPING_SAUCE);
-                        return hamburger
-                  }
-            return hamburger
-        }else if(userForm.staffing == 'Salad'){
-           let hamburger = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_SALAD);
-                if(userForm.topping.length == 1){
-                  if(userForm.topping[0] == 'Sauce'){
-                      hamburger.addTopping(Hamburger.TOPPING_SAUCE);
-                      return hamburger
-                    }else if(userForm.topping[0] == 'Mayonez'){
-                      hamburger.addTopping(Hamburger.TOPPING_MAYO);
-                      return hamburger
-                    }
-                    }else if(userForm.topping.length == 2){
-                          hamburger.addTopping(Hamburger.TOPPING_MAYO)
-                          hamburger.addTopping(Hamburger.TOPPING_SAUCE);
-                          return hamburger
-                    }
-            return hamburger
-        }else if(userForm.staffing == 'Potato'){
-          let hamburger = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_POTATO);
-                if(userForm.topping.length == 1){
-                  if(userForm.topping[0] == 'Sauce'){
-                      hamburger.addTopping(Hamburger.TOPPING_SAUCE);
-                      return hamburger
-                    }else if(userForm.topping[0] == 'Mayonez'){
-                      hamburger.addTopping(Hamburger.TOPPING_MAYO);
-                      return hamburger
-                    }
-                    }else if(userForm.topping.length == 2){
-                          hamburger.addTopping(Hamburger.TOPPING_MAYO)
-                          hamburger.addTopping(Hamburger.TOPPING_SAUCE);
-                          return hamburger
-                    }
-              return hamburger
-        }
-    }
-  }
-  
-  
-  div.innerHTML = `Привет: ${userForm.name} <br> Ваш заказ ${userForm.size} бургер с ${userForm.staffing} и ${userForm.topping} будет готов в течении ${randomValue} минут
-  Стоимость заказа: ${burgerPrize} гривен <br>
-  Каллорий:  ${calories}`
-  orders.insertAdjacentElement('beforeend', div);
-
-    event.target.reset();
+searchFrom.addEventListener('click', function(){
+  let searchTypes = document.querySelector('#searchTypes')
+  searchTypes.classList.toggle('open')
 })
 
+let getStore = () => JSON.parse(localStorage.getItem('favorite')) ?? []
+
+let getRandom = () =>
+    fetch('https://api.chucknorris.io/jokes/random')
+
+let getCategories = (category) =>
+    fetch(`https://api.chucknorris.io/jokes/random?category=${category}`)
+
+let getSearch = (word) =>
+    fetch(`https://api.chucknorris.io/jokes/search?query=${word}`)
+
+let addFavorite = (joke, store) =>{
+  store.push({...joke, like:true})
+  localStorage.setItem('favorite', JSON.stringify(store))
+  render({...joke, like:true})
+}
+
+let removeFavorite = (joke, store) =>{
+  let updatedStore = store.filter(el => el.id !== joke.id)
+  localStorage.setItem('favorite', JSON.stringify(updatedStore))
+
+  favorite.querySelector(`div[data-id=${joke.id}]`).remove()
+  let img = jokesWrap.querySelector(`p[data-id=${joke.id}] img`)
+  img.src = './img/Vector.svg'
+
+}
+
+let markIfFavorite = (joke, img) => {
+  let store = getStore()
+  store.findIndex(el => el.id === joke.id) >= 0 && (img.src = './img/heart.svg')
+}
+
+let clickHeart = (joke) =>{
+  let img = document.querySelector(`p[data-id=${joke.id}] img`)
+  let store = getStore()
+
+  if(img.src.includes('heart')){
+      img.src = './img/Vector.svg'
+      removeFavorite(joke, store)
+
+  }else{
+      img.src = './img/heart.svg'
+      addFavorite(joke, store)
+  }
+}
+
+
+
+let render = (joke) => {
+      let div = document.createElement('div')
+      let p = document.createElement('p')
+      let img = document.createElement('img')
+      let cat = document.createElement('div')
+      let imgMess = document.createElement('img')
+      let pDate = document.createElement('p')
+      let pId = document.createElement('p')
+
+      p.innerHTML = joke.value
+      p.dataset.id = joke.id
+      pDate.innerHTML = dateDifrence(joke.updated_at, currentDate)
+      pDate.className += 'pDate'
+      pId.innerHTML = `ID:${joke.id}`
+      pId.className += "pId"
+      cat.innerHTML = joke.categories
+      cat.className += "categories"
+      div.className += "joke"
+      div.dataset.id = joke.id
+      imgMess.src = './img/message.svg'
+
+      img.src = './img/Vector.svg'
+      img.className = 'heartImg'
+      imgMess.className = 'imgMess'
+
+      div.append(pId)
+      div.append(p)
+      div.append(pDate)
+      div.append(imgMess)
+      if(joke.categories.length == 1){div.append(cat)}
+
+    
+      img.addEventListener('click', () => clickHeart(joke))
+      p.append(img)
+      if(joke.like){
+        favorite.append(div)
+        div.append(p)
+        div.append(pDate)
+        img.src = './img/heart.svg'
+      }else{
+        markIfFavorite(joke, img)
+        jokesWrap.append(div)
+        div.append(p)
+        div.append(pDate)
+
+      }
+}
+
+form.addEventListener('submit', (event) => {
+let searchCategotries = document.querySelector('input[name = "searchCategotries"]:checked').value
+let searchTypes = document.querySelector('input[name = "searchTypes"]:checked')
+let searchText = document.querySelector('#searchText').value
+event.preventDefault()
+  if(searchCategotries == 'random'){
+      getRandom()
+      .then((response) => response.json())
+      .then(res => render(res))
+  }else if(searchCategotries == 'categories'){  
+      getCategories(searchTypes.value)
+      .then((response) => response.json())
+      .then(res => render(res))
+ }else{
+      getSearch(searchText)
+      .then((response) => response.json())
+      .then(response => response.result.forEach(joke=>render(joke)))
+  }
+})
+
+let renderFavorite = () => {
+  let store = getStore()
+  store.forEach( joke => render(joke))
+}
+
+renderFavorite()
+
+document.addEventListener('DOMContentLoaded', function(){
+  let favBtn = document.querySelector('#favBtn')
+  let body = document.querySelector('body')
+  let main = document.querySelector('main')
+  favBtn.addEventListener('click', function(){
+    favorite.classList.toggle('open')
+    favBtn.classList.toggle('open')
+    main.classList.toggle('open')
+    body.classList.toggle('open')
+  })
+})
