@@ -51,7 +51,7 @@ let markIfFavorite = (joke, img) => {
 }
 
 let clickHeart = (joke) =>{
-  let img = document.querySelector(`p[data-id=${joke.id}] img`)
+  let img = document.querySelector(`p[data-id=${joke.id}] img`) ?? ('p img')
   let store = getStore()
 
   if(img.src.includes('heart')){
