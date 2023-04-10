@@ -143,12 +143,8 @@ renderFavorite()
 
 document.addEventListener('DOMContentLoaded', function(){
   let favBtn = document.querySelector('#favBtn')
-  let body = document.querySelector('body')
-  let main = document.querySelector('main')
   favBtn.addEventListener('click', function(){
     favorite.classList.toggle('open')
     favBtn.classList.toggle('open')
-    main.classList.toggle('open')
-    body.classList.toggle('open')
   })
 })
