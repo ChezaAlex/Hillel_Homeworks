@@ -39,8 +39,8 @@ let removeFavorite = (joke, store) =>{
   let updatedStore = store.filter(el => el.id !== joke.id)
   localStorage.setItem('favorite', JSON.stringify(updatedStore))
 
-  favorite.querySelector(`div[data-id=${joke.id}]`).remove()
-  let img = jokesWrap.querySelector(`p[data-id=${joke.id}] img`)
+  favorite.querySelector(`div[data-id="${joke.id}"]`).remove()
+  let img = jokesWrap.querySelector(`p[data-id="${joke.id}"] img`)
   img.src = './img/Vector.svg'
 
 }
@@ -51,7 +51,7 @@ let markIfFavorite = (joke, img) => {
 }
 
 let clickHeart = (joke) =>{
-  let img = document.querySelector(`p[data-id=${joke.id}] img`) ?? ('p img')
+  let img = document.querySelector(`p[data-id="${joke.id}"] img`)
   let store = getStore()
 
   if(img.src.includes('heart')){
