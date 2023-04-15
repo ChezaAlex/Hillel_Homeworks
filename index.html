@@ -9,59 +9,21 @@
     <title>Document</title>
 </head>
     <body>
-        <main>
-            <article>
-                <div id="favBtnBlock">
-                    <button id="favBtn">
-                        <span></span><span></span>
-                    </button>
-                    <p class="favText">Favorite</p>
-                </div>
-                <section class="header">
-                    <h1>MSI 2020</h1>
-                    <H2>Hey!</H2>
-                    <h3>Let`t try to find joke for you:</h3>
-                </section>
-                <section>
-                    <form action="">
-                        <fieldset>
-                            <div>
-                                <input type="radio" name="searchCategotries" id="searchRandom" value="random">
-                                <label for="searchRandom">Random</label> 
-                            </div>
-                            <div>
-                                <input type="radio" name="searchCategotries" id="searchFrom" value="categories">
-                                <label for="searchFrom">From categotries</label> 
-                            </div>
-                        </fieldset>
-                        <fieldset id="searchTypes">
-                            <input type="radio" name="searchTypes" id="typeAnimal" value="animal"> 
-                            <label for="typeAnimal" class="searchType">ANIMAL</label> 
-                            
-                            <input type="radio" name="searchTypes" id="typeCareer" value="career">
-                            <label for="typeCareer" class="searchType">CAREER</label> 
-                            
-                            <input type="radio" name="searchTypes" id="typeCelebrity" value="celebrity">
-                            <label for="typeCelebrity" class="searchType">CELEBRITY</label> 
-                            
-                            <input type="radio" name="searchTypes" id="typeDev" value="dev">
-                            <label for="typeDev" class="searchType">DEV</label> 
-                        </fieldset>
-                        <fieldset>
-                            <div>
-                                <input type="radio" id="searchWord" name="searchCategotries" value="word">
-                                <label for="searchWord">Search</label> 
-                            </div>
-                            <input type="text" id="searchText">
-                        </fieldset>
-                        <button id="buton">Get a joke</button>
-                    </form>
-                </section>
-                <section id="jokesWrap"></section>
-            </article>
-            <aside>
-                <h4>Favorite</h4>
-            </aside>
-        </main>
+        <form action=""> 
+            <label for=""> Name:
+                <input type="text" data-name="name">
+            </label>
+            <label for=""> Comics:
+                <select name="" id="" data-name="Comics">
+                    <option value="DC">DC</option>
+                    <option value="Marvel">Marvel</option>
+                </select>
+            </label>
+            <label for="" data-name="Comics"> Favorite
+                <input type="checkbox">
+            </label>
+            <button type="submit">Add hero</button>
+        </form>
+        <div id="createHeroes"></div>
     </body>
 </html> 
