@@ -1,3 +1,6 @@
+body{
+    font-family: sans-serif;
+}
 form{
     display: flex;
     flex-direction: column;
@@ -7,4 +10,32 @@ form{
 #createHeroes{
     display: flex;
     grid-gap: 10px;
+}
+body{
+    margin: 0 auto;
+}
+h3{
+    font-size: 23px;
+    font-weight: 300;
+    margin-top: 5px;
+    line-height: 1;
+    color: #f35626;
+    background-image: -webkit-linear-gradient(74deg,#ff0000,#AF233E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 1s infinite linear;
+}
+
+@-webkit-keyframes hue {
+from {
+-webkit-filter: hue-rotate(0deg);
+}
+
+to {
+-webkit-filter: hue-rotate(-360deg);
+}
+}
+li:hover{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.15);
+    margin-bottom: 1px;
 }

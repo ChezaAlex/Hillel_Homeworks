@@ -1,90 +1,105 @@
-let form = document.querySelector('form')
-let createHeroesWrapper = document.querySelector('#createHeroes')
+let header = $("#header")
+let list = $('ul')
+let itemsLi = $('.colors')
+let car = $('#car')
+let logo = $("<img>")
+let title = $('<div></div>')
+let h1 = $('<h1>Tesla</h1>')
+let h2 = $('<h2>Roadster</h2>')
+let h3 = $('<h3>Colors</h3>')
+let carImg = $('<img>')
+let pText = $('<p></p>')
 
-let render = (hero) =>{
-  let heroBlock = document.createElement('form')
-  heroBlock.setAttribute('id',`${hero.id}`) 
-  heroBlock.className = `${hero.name}`.replace(/ /g,'')
-  heroBlock.innerHTML = `
-    <label for=""> Name:
-        <input type="text" data-name="name" value =${hero.name}>
-    </label>
-    <label for=""> Comics:
-        <select name="" id="" data-name="Comics" value = ${hero.comics}>
-            <option value="DC">DC</option>
-            <option value="Marvel">Marvel</option>
-        </select>
-    </label>
-    <label for="" data-name="Comics"> Favorite
-        <input type="checkbox" class = "getInput" ${hero.favourite ? 'checked' : ''}>
-    </label>
-    <button type="submit" name ="Update">Update</button>
-    <button type="submit" name ="Delete">Delete</button>`
-    createHeroesWrapper.append(heroBlock)
-    heroBlock.addEventListener("submit", (e)=> {
-      e.preventDefault()
-        let classHero = e.target.className
-        let idHero = e.target.id
-        let deletedNode = document.querySelector(`.${classHero}`)
-        let favourite = heroBlock.querySelector('input[class = "getInput"]')
-      if (e.submitter.name === "Update") {
-        hero.favourite = favourite.checked
-        changeHero(idHero, hero)
-      }else if(e.submitter.name === "Delete"){
-        deletedNode.remove()
-        deleteHero(idHero)
-      }
+logo.attr('src', 'https://mc-astro.github.io/tesla-roadster-colors/img/tesla-logo.png')
+carImg.attr(`src`, `https://mc-astro.github.io/tesla-roadster-colors/img/black.jpg`)
+
+header.append(logo)
+header.after(title)
+title.append(h1, h2, h3)
+car.append(carImg)
+car.after(pText)
+$(pText).text(`Solid Black`) 
+
+let getImg =(image)=>{
+    carImg.attr(`src`, `https://mc-astro.github.io/tesla-roadster-colors/img/${image}.jpg`)
+}
+
+let getData = async () =>{
+    let res = await $.ajax({
+        url: "https://raw.githubusercontent.com/brightestsirius/Front-end-Pro-19/master/lesson_27/tesla.json",
+        method: 'GET'
     });
+    return JSON.parse(res);
 }
 
-let createHero = async (obj) =>{
-  let result = await fetch("https://63693f7228cd16bba71904e4.mockapi.io/heroes",{
-    method: 'POST',
-    headers:{
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(obj)
-  }).then(res=>res.json())
-  
-  render(result)
-}
+getData().then(data => {
+    itemsLi.each((index, el) => {
+        const { color, img: imageCar, title: colorText } = data[index];
+        $(el).css({
+            'background': `${color}`,
+        })
+        $(el).click(function() {
+            getImg(imageCar)
+            $(pText).text(`${colorText}`) 
+        });
+    });
+});
 
-form.addEventListener('submit', (e) =>{
-  e.preventDefault() 
-
-  let name = form.querySelector('input[data-name="name"]')
-  let comics = form.querySelector('select')
-  let favourite = form.querySelector('input[type="checkbox"]')
-
-  let newHero = {
-    name: name.value,
-    comics: comics.value,
-    favourite: favourite.value
-  }
-  createHero(newHero) 
+// STYLES
+h1.css({
+    'font-size': '23px',
+    'font-weight': '300',
+    'margin': '4px 0 0 0',
+    'line-height': '1'
+  })
+h2.css({
+    'font-size': '50px',
+    'margin-top': '5px',
+    'font-weight': '500',
+    'line-height': '1',
+    'margin-bottom': '14px'
+})
+logo.css({
+    'margin': '20px',
+    'width': '100px'
+})
+title.css({
+    'text-align': 'center',
+    'color': '#333333',
+    'filter': 'saturate(50%)'
+})
+car.css({
+    'display':'flex',
+    'justify-content':'center',
+})
+carImg.css({
+    'max-width': '1000px',
+    'position': 'relative',
+    'margin': 'auto'
+})
+pText.css({
+    'text-align':'center',
+    'color': '#cccccc',
+    'font-size': '15px',
+    'width': '100%'
 })
 
-let getExistedHeroes = async() =>{
-    let result = await fetch(`https://63693f7228cd16bba71904e4.mockapi.io/heroes/`,{
-    method: 'GET',
-    headers:{
-      "Content-type": "application/json",
-    }
-  }).then(res=>res.json())
-    result.forEach(e => {render(e)})
-}
-getExistedHeroes()
+list.css({
+    'display':'flex',
+    'justify-content':'center',
+    'listStyleType': 'none',
+    'margin': '0px 10px 60px 10px'
+})
+itemsLi.css({
+    'margin': '5px',
+    'width': '25px',
+    'height' : '35px',
+    'cursor': 'pointer',
+    'borderRadius': '2px'
+})
 
-let deleteHero = async(idHero) =>{
-  let result = await fetch(`https://63693f7228cd16bba71904e4.mockapi.io/heroes/${idHero}`,{
-    method: 'DELETE',
-  }).then(res=>res.json())
-}
+///
 
-let changeHero = async (idHero, hero) =>{
-  let result = await fetch(`https://63693f7228cd16bba71904e4.mockapi.io/heroes/${idHero}`,{
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(hero)
-}).then(res=>res.json())
-}
+
+
+
