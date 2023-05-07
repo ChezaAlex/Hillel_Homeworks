@@ -1,0 +1,44 @@
+input{
+    margin: 20px 20px;
+    font-size: 20px;
+}
+.btnAdd{
+    background-color: #3873f3;
+    padding: 10px 25px;
+    border-radius: 5px;
+    color: white;
+    border-color: #3873f3;
+}
+th{
+    font-weight: bold;
+    width: 150px;
+}
+table{
+    border: 0.5px grey solid; 
+}
+tr{
+    border: 0.5px grey solid; 
+}
+td{
+    border: 0.5px grey solid;  
+    text-align: center;
+}
+
+.edit, .status-completed{
+    background-color: #55a755;
+    width: 60px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    margin-right: 5px;
+    border-color: #55a755;
+}
+
+.delete, .status-pending{
+    background-color: #ca434b;
+    width: 60px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    border-color: #ca434b;
+}
