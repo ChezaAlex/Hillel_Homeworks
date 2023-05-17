@@ -1,0 +1,162 @@
+
+body{
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+main{
+    margin: 20px;
+}
+
+/* header */
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: green;
+    padding: 15px 60px;
+    max-height: 30px;
+}
+#log{
+    display: flex;
+    align-items: center;
+}
+#logo img{
+    width: 30px;
+}
+#cartImage{
+    width: 25px;
+}
+a{
+    color: white;
+    text-decoration: underline dotted;
+}
+a:hover{
+    text-decoration: none;
+}
+
+#cartLink{
+    position: relative;
+}
+#cartCount{
+    position: absolute;
+    left: 15px;
+    top: -15px;
+    display: inline;
+    background-color: white;
+    padding: 1px 5px;
+    border-radius: 50%;
+    color: green;
+    font-size: 12px;
+}
+
+/* products */
+.category__container{
+    display: flex;
+}
+.productCard{
+    width: 180px;
+    height: 250px;
+    box-shadow: 5px 2px 20px rgb(128, 125, 125);
+    margin: 15px 15px;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.price{
+    color: black;
+    font-weight: bold;
+    padding-right: 35px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+button{
+    border: none;
+    cursor: pointer;
+    background-color: green;
+
+    border-radius: 3px;
+    padding: 4px 12px 4px 10px;
+}
+button img{
+    width: 20px;
+    height: 20px;
+}
+
+#form_wrapper{
+    display:flex;
+    justify-content: space-between;
+}
+#form_wrapper input{
+    margin: 10px 0px;
+}
+#formSignIn input{
+    width: 500px;
+    height: 40px;
+}
+#formRegistration input{
+    display: block;
+    width: 500px;
+    height: 40px;
+}
+.formSubmit,  .accountPath{
+    color: white;
+    background-color: red;
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+}
+.classError{
+    color: rgb(95, 40, 40);
+    background-color: rgb(232, 198, 198);
+    width: 450px;
+    height: 20px;
+    text-align: center;
+    padding: 20px;
+}
+.shoppingWrapper{
+    display:flex;
+    justify-content: space-between;
+}
+.shoppingCartText{
+    color: green;
+}
+
+thead{
+    background-color: rgb(234, 234, 234);
+}
+td{
+    font-weight: 600;
+}
+.salePercent{
+    background: green;
+    color: white;
+}
+.myOrder{
+    width: 400px;
+    background-color: rgb(234, 234, 234);
+}
+.orderTotal{
+    display: flex;
+    justify-content: space-between;
+}
+.shoppingCartText{
+    text-align: left;
+}
+.userInfo{
+    text-align: center;
+}
+
+.deleteAccount{
+    color: rgb(131, 76, 76);
+    background-color: rgb(221, 151, 151);
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+}
+.accountWrapper{
+    display:flex;
+    justify-content: space-between; 
+}
+.accountUser{
+    width: 400px;
+    background-color: rgb(234, 234, 234);
+}

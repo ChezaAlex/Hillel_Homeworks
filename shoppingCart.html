@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script/shoppingCart.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Shoping Card</title>
+</head>
+  <header>
+    <a id="logo" href="index.html"><img src="img/logo.png"></a>
+    <div class ="log">
+        <a id="signIn" href="login.html">Log in</a>
+        <a id="cartLink" href="shoppingCart.html"><img src="img/shopping-cart.png" alt="basket" id="cartImage"> <span id="cartCount">0</span></a>
+        <a id="logOut" href="#"></a>
+    </div>
+  </header>
+  <main>
+    <div class="shoppingWrapper">
+      <div class="orderSum">
+        <h2 class="shoppingCartText">Items in Shopping Cart</h2>
+        <table>
+          <thead>
+            <th>Item </th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Sale</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Action</th>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="userInfo">
+        <div class = "myOrder">
+          <h2 class="shoppingCartText">My order Summary</h2>
+          <div class="orderTotal">
+            <p>Order Total</p>
+            <p id="sumOrder"></p>
+          </div>
+        <button class ="accountPath"><a href="account.html">Complete Order</a></button>
+        </div>
+      </div>
+    </div>
+  </main>
+</html> 

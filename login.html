@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script/login.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
+    <body>
+        <header>
+            <a id="logo" href="index.html"><img src="img/logo.png"></a>
+            <div class ="log">
+                <a id="signIn" href="login.html">Log in</a>
+                <a id="cart" href="login.html"> <img src="img/shopping-cart.png" alt="basket" id="cartImage"> <span id="cartCount">0</span></a>
+                <a id="logOut" href="#"></a>
+            </div>
+        </header>
+        <main>
+            <div id="form_wrapper">
+                <form id="formSignIn">
+                    <div class="error" style="display: none;"></div>
+                    <h2>Secure Sign In</h2>
+                    <p>For curent customers</p>
+                    <input type="email" id="email" name="email" required placeholder="Email">
+                    <br>
+                    <input type="password" id="password" name="password" required placeholder="Password">
+                    <br>
+                    <button type="submit" class="formSubmit">Sign in</button>
+                </form>
+
+
+                    <form action="" id="formRegistration">
+                        <div class="errorReg" style="display: none;"></div>
+                        <h2>Quick Registration</h2>
+                        <p>For new customers</p>
+                        <input type="text" placeholder="Name" name="name">
+                        <input type="email" placeholder="Email address" name="email">
+                        <input type="password" placeholder="Password" name="password">
+                        <input type="password" placeholder="Verify password" name="verifyPassword">
+                        <button type="submit" class="formSubmit">Create account</button>
+                        
+                    </form>
+            </div>
+        </main>
+    </body>
+</html> 
