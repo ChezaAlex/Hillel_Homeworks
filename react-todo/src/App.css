@@ -1,0 +1,63 @@
+input{
+  margin: 20px 20px;
+  font-size: 20px;
+  width: 100px;
+}
+.btnAdd{
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+}
+th:first-child{
+  width: 50px;
+}
+th{
+  font-weight: bold;
+  width: 150px;
+  background-color: lightgrey;
+}
+button{
+  margin: 5px;
+}
+td{
+  border: 0.5px lightgrey solid;  
+  text-align: center;
+}
+
+.delete{
+  background-color: #ca434b;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  color: white;
+  border-color: #ca434b;
+}
+.all{
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: blue;
+  color: whitesmoke;
+  border: none;
+}
+.pending{
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #ca434b;
+  color: whitesmoke;
+  border: none;
+}
+.completed{
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: green;
+  color: whitesmoke;
+  border: none;
+}
+.row{
+  margin: 10px;
+}
